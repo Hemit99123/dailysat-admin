@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useState } from "react";
+import { assignJWT } from "@/server-actions/assignJWT";
 
 export default function Authorize() {
   const [email, setEmail] = useState("");
@@ -40,9 +41,11 @@ export default function Authorize() {
       // result is true meaning we are good to go to assign the session and stuff
       if (response.data.result) {
         alert("Verification successful!");
+        // assign JWT which is needed for extra auth when assigning a employee access session
+        const token = assignJWT(email)
         // add session to the redis db 
         await axios.post('/api/session', {
-          email
+          token
         })
         setOTP("")
       } else {
