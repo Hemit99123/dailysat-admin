@@ -7,25 +7,23 @@ const handleCheckSession = async (request: NextRequest) => {
     const isSessionValid = await getEmployeeSession();
   
     if (!isSessionValid) {
-        return NextResponse.json({
-          error: 'You do not have the proper employee authorization',
-        });
-      }
-  
-    if (!isSessionValid) {
-        return redirectTo(request, '/unauthorized');
-    }
-    
-  
-    // for login and logout routes, the redirection is a bit different than unauthed routes
 
-    if (request.nextUrl.pathname === '/login') {
-      return isSessionValid ? redirectTo(request, '/logout') : null;
+        // different logic for login because we are redirecting to logout NOT login page
+        // this is why we check for if current page is /login first then other logic 
+        
+        if (request.nextUrl.pathname === '/login') {
+            return isSessionValid ? redirectTo(request, '/logout') : null;
+        }
+
+        if (request.nextUrl.pathname.includes('/api')) {
+            return NextResponse.json({
+                error: 'You do not have the proper employee authorization',
+            });
+        } else {
+            return redirectTo(request, '/login');
+        }
     }
-  
-    if (request.nextUrl.pathname === '/logout') {
-      return !isSessionValid ? redirectTo(request, '/login') : null;
-    }
+
   
     return null;
 };
