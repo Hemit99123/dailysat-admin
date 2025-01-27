@@ -10,6 +10,7 @@ export default function Authorize() {
 
   const handleAuthorization = async () => {
     try {
+      alert('yo')
       const response = await axios.post(`/api/employee-verification/`, {
         email
       });
@@ -42,7 +43,7 @@ export default function Authorize() {
       if (response.data.result) {
         alert("Verification successful!");
         // assign JWT which is needed for extra auth when assigning a employee access session
-        const token = assignJWT(email)
+        const token = await assignJWT(email)
         // add session to the redis db 
         await axios.post('/api/session', {
           token

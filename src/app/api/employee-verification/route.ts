@@ -41,7 +41,7 @@ export const POST = async (request: Request) => {
 
     // Store OTP in Redis
     await redis.set(`employee-${email}`, otp);
-    await redis.expire(email, 300); // Expire in 5 minutes
+    await redis.expire(`employee-${email}`, 300); // Expire in 5 minutes
 
     // Send OTP email
     const mailOptions = {

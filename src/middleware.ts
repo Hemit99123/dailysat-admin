@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import handleCheckSession from '@/lib/middleware/checkSession';
+import { getSession as getEmployeeSession } from '@/lib/auth/employeeSession';
+import redirectTo from '@/lib/common/redirect';
 
 export const middleware = async (request: NextRequest) => {
-  const sessionResponse = await handleCheckSession(request);
-  if (sessionResponse) return sessionResponse;
+  const isSessionValid = await getEmployeeSession();
 
-  // if there is no session response, return the response next
-  return NextResponse.next();
+    // If the session is valid, proceed to the next middleware or route handler
+    return NextResponse.next();
 };
