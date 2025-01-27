@@ -17,12 +17,14 @@ const handleCheckSession = async (request: NextRequest) => {
     }
     
   
-    if (request.nextUrl.pathname === '/employee-authorize') {
-      return isSessionValid ? redirectTo(request, '/employee-authorize/logout') : null;
+    // for login and logout routes, the redirection is a bit different than unauthed routes
+
+    if (request.nextUrl.pathname === '/login') {
+      return isSessionValid ? redirectTo(request, '/logout') : null;
     }
   
-    if (request.nextUrl.pathname === '/employee-authorize/logout') {
-      return !isSessionValid ? redirectTo(request, '/employee-authorize') : null;
+    if (request.nextUrl.pathname === '/logout') {
+      return !isSessionValid ? redirectTo(request, '/login') : null;
     }
   
     return null;
