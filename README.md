@@ -2,7 +2,7 @@
 
 This is for employees within DailySAT to manage content within the DailySAT website. This content includes questions in our Math and Reading/Writing sections and items to be bought by members when they earn DailySAT coins.
 
-# Our authentication system
+## Our authentication system
 
 Authentication works through 2 layers. 
 
@@ -11,3 +11,10 @@ The first layer is a whitelist on MongoDB. Our DB admin will add emails that are
 
 ### OTP:
 The second layer is an OTP which is sent to your email. It is only active for 5 minutes and is a one-time use code. You will enter that in the next section of the login and then enter your email once more. Afterwards, you will gain access for **7 days**. After the 7 days (1 week), you will need to do this process all-over again. 
+
+## Technologies Used:
+- NextJS
+- Upstash Redis (session management)
+- Nodemailer w/ Gmail STMP
+- TailwindCSS (for styling ofc)
+- MongoDB
