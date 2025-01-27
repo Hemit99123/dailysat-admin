@@ -1,12 +1,21 @@
 "use client"
 
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useRouter} from "next/navigation"
+import checkLogoutPage from "@/server-actions/prechecks/logout";
 
 const Logout = () => {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
+
+    useEffect(() => {
+        const checkLogout = async () => {
+          await checkLogoutPage();
+        };
+        
+        checkLogout();
+      }, []);
 
     const handleLogout = async () => {
         try {

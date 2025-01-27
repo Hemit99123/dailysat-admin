@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { getSession as getEmployeeSession } from '@/lib/auth/employeeSession';
+import { getSession } from '@/lib/auth/employeeSession';
 
 export const middleware = async (request: NextRequest) => {
-  const isSessionValid = await getEmployeeSession();
+  const isSessionValid = await getSession();
 
   if (isSessionValid) {
     return NextResponse.next();

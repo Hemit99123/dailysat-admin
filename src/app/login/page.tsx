@@ -1,12 +1,21 @@
 "use client";
 
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { assignJWT } from "@/server-actions/assignJWT";
+import checkLoginPage from "@/server-actions/prechecks/login";
 
 export default function Authorize() {
   const [email, setEmail] = useState("");
   const [otp, setOTP] = useState("");
+
+  useEffect(() => {
+    const checkLogin = async () => {
+      await checkLoginPage();
+    };
+    
+    checkLogin();
+  }, []);
 
   const handleAuthorization = async () => {
     try {
