@@ -41,7 +41,7 @@ export default function Authorize() {
       if (response.data.result) {
         alert("Verification successful!");
         // add session to the redis db 
-        await axios.post('/api/session/employee', {
+        await axios.post('/api/session', {
           email
         })
         setOTP("")
