@@ -18,3 +18,5 @@ The second layer is an OTP which is sent to your email. It is only active for 5 
 - Nodemailer w/ Gmail STMP
 - TailwindCSS (for styling ofc)
 - MongoDB
+- Husky
+- ESLint
