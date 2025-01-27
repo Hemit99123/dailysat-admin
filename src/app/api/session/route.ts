@@ -1,5 +1,5 @@
 import { setSession } from "@/lib/auth/employeeSession";
-import jwt, { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 export const POST = async (request: Request) => {
     const body = await request.json(); // Await the request body
