@@ -31,6 +31,7 @@ const createSessionIDCookie = async (): Promise<string> => {
 
 export const getSession = async (): Promise<boolean> => {
     const sessionId = await getSessionIDCookie();
+    
     if (!sessionId) {
         return false; // Return false if no sessionId
     }
