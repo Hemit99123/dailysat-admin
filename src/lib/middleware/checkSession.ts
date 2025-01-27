@@ -10,7 +10,7 @@ const handleCheckSession = async (request: NextRequest) => {
 
         // different logic for login because we are redirecting to logout NOT login page
         // this is why we check for if current page is /login first then other logic 
-        
+
         if (request.nextUrl.pathname === '/login') {
             return isSessionValid ? redirectTo(request, '/logout') : null;
         }
@@ -24,7 +24,7 @@ const handleCheckSession = async (request: NextRequest) => {
         }
     }
 
-  
+    // if session IS valid, we return nada 
     return null;
 };
 
