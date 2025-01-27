@@ -33,7 +33,7 @@ export default function Authorize() {
       const email = prompt("Enter email please")
 
       // Here we see if email actually belongs to the user because the otp was sent to their email
-      const response = await axios.get(`/api/employee-verification/otp`, {
+      const response = await axios.get(`/api/otp-verify`, {
         params: { passwordAttempt: otp, email },
       });
 
