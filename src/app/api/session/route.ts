@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { setSession } from "@/lib/auth/employeeSession";
 import jwt from "jsonwebtoken";
 
