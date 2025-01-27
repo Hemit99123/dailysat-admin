@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { assignJWT } from "@/server-actions/assignJWT";
 import checkLoginPage from "@/server-actions/prechecks/login";
 
-export default function Authorize() {
+export const Login = () => {
   const [email, setEmail] = useState("");
   const [otp, setOTP] = useState("");
 
@@ -19,7 +19,6 @@ export default function Authorize() {
 
   const handleAuthorization = async () => {
     try {
-      alert('yo')
       const response = await axios.post(`/api/employee-verification/`, {
         email
       });
@@ -117,3 +116,5 @@ export default function Authorize() {
     </section>
   );
 }
+
+export default Login
