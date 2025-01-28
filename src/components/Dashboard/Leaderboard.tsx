@@ -48,9 +48,8 @@ const Leaderboard = () => {
               <TableRow
                 key={user._id}
                 cusId={user._id || `#${index + 1}`}
-                sku={user.name || "Unknown"}
-                date={new Date().toLocaleDateString()} // Replace if you have date in your data
-                price={`$${user.currency}`}
+                name={user.name || "Unknown"}
+                money={`$${user.currency}`}
                 order={index + 1}
               />
             ))
@@ -73,8 +72,7 @@ const TableHead = () => {
       <tr className="text-sm font-normal text-stone-500">
         <th className="text-start p-1.5">Customer ID</th>
         <th className="text-start p-1.5">Name</th>
-        <th className="text-start p-1.5">Date</th>
-        <th className="text-start p-1.5">Currency</th>
+        <th className="text-start p-1.5">Money</th>
         <th className="w-8"></th>
       </tr>
     </thead>
@@ -85,15 +83,13 @@ export default Leaderboard;
 
 const TableRow = ({
   cusId,
-  sku,
-  date,
-  price,
+  name,
+  money,
   order,
 }: {
   cusId: string;
-  sku: string;
-  date: string;
-  price: string;
+  name: string;
+  money: string;
   order: number;
 }) => {
   return (
@@ -106,9 +102,8 @@ const TableRow = ({
           {cusId} <FiArrowUpRight />
         </a>
       </td>
-      <td className="p-1.5">{sku}</td>
-      <td className="p-1.5">{date}</td>
-      <td className="p-1.5">{price}</td>
+      <td className="p-1.5">{name}</td>
+      <td className="p-1.5">{money}</td>
       <td className="w-8">
         <button className="hover:bg-stone-200 transition-colors grid place-content-center rounded text-sm size-8">
           <FiMoreHorizontal />
