@@ -14,6 +14,7 @@ export const GET = async () => {
       const users = await usersCollection
         .find({})
         .sort({ currency: -1 }) // Sort by currency in descending order
+        .limit(15)
         .toArray();
   
       // Return the sorted users as a JSON response
