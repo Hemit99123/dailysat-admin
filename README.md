@@ -2,6 +2,9 @@
 
 This is for employees within DailySAT to manage content within the DailySAT website. This content includes questions in our Math and Reading/Writing sections and items to be bought by members when they earn DailySAT coins.
 
+## Demo:
+[Click here](https://www.youtube.com/watch?v=zDWumYOJQHQ)
+
 ## Our authentication system
 
 Authentication works through 2 layers. 
