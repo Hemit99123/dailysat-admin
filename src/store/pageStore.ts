@@ -3,10 +3,10 @@ import { create } from 'zustand'
 
 interface PageStoreType {
   page: Page
-  increase: (by: number) => void
+  increase: () => void
 }
 
 export const usePageStore = create<PageStoreType>()((set) => ({
   page: "dashboard",  // Default value
-  increase: (by) => set((state) => ({ page: state.page }))  
+  increase: () => set((state) => ({ page: state.page }))  
 }))
