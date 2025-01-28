@@ -30,7 +30,7 @@ const Logout = () => {
     }
 
     const handleGoBack = () => {
-      router.back()
+      router.push("/")
     }
 
     return (
