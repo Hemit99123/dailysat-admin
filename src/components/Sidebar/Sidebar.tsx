@@ -1,6 +1,6 @@
 import React from "react";
 import PageSelect from "./PageSelect";
-import ContactUs from "./ContactUs";
+import Logout from "./Logout";
 import DailySATHeader from "./DailySATHeader";
 
 const Sidebar = () => {
@@ -11,7 +11,7 @@ const Sidebar = () => {
         <PageSelect />
       </div>
 
-      <ContactUs />
+      <Logout />
     </div>
   );
 };
