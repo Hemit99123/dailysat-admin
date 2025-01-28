@@ -1,10 +1,11 @@
 "use client"
 
+import { User } from "@/types/user";
 import React, { useEffect, useState } from "react";
 import { FiArrowUpRight, FiDollarSign, FiMoreHorizontal } from "react-icons/fi";
 
 const Leaderboard = () => {
-  const [sortedUsers, setSortedUsers] = useState<any[]>([]);
+  const [sortedUsers, setSortedUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
