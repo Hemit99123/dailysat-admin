@@ -1,7 +1,7 @@
 import { client } from "@/lib/mongo";
 import { Db } from "mongodb";
 
-export const GET = async (request: Request) => {
+export const GET = async () => {
   try {
     // Connect to MongoDB
     await client.connect();
