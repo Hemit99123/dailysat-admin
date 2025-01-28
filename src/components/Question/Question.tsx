@@ -12,6 +12,15 @@ const QuestionForm: React.FC = () => {
   const [skill, setSkill] = useState<string>('');
   const [type, setType] = useState<QuestionType>('math'); // State for question type
 
+  // Available skills for each type
+  const mathSkills = ['Algebra', 'Problem Solving', 'Data Analysis'];
+  const readingSkills = [
+    'Information and Ideas',
+    'Craft and Structure',
+    'Expression of Ideas',
+    'Standard English Conventions',
+  ];
+
   // Handle changes for question text
   const handleQuestionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuestion(e.target.value);
@@ -34,8 +43,8 @@ const QuestionForm: React.FC = () => {
     setExplanation(e.target.value);
   };
 
-  // Handle skill text input
-  const handleSkillChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Handle skill selection change (for select element)
+  const handleSkillChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSkill(e.target.value);
   };
 
@@ -140,13 +149,27 @@ const QuestionForm: React.FC = () => {
       {/* Skill Input */}
       <div className="mt-5">
         <label htmlFor="skill" className="block text-lg text-gray-700">Skill</label>
-        <input
+        <select
           id="skill"
           className="w-full border-2 border-gray-300 rounded-lg p-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all mt-2"
           value={skill}
-          onChange={handleSkillChange}
-          placeholder="Skill name..."
-        />
+          onChange={handleSkillChange} // Corrected to use the right handler
+        >
+          {/* Conditionally render the options based on the type */}
+          {type === 'math' ? (
+            mathSkills.map((skillOption, index) => (
+              <option key={index} value={skillOption}>
+                {skillOption}
+              </option>
+            ))
+          ) : (
+            readingSkills.map((skillOption, index) => (
+              <option key={index} value={skillOption}>
+                {skillOption}
+              </option>
+            ))
+          )}
+        </select>
       </div>
 
       {/* Type Selection Dropdown */}
