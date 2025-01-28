@@ -50,7 +50,7 @@ const data = [
   },
 ];
 
-export const ActivityGraph = () => {
+const ActivityGraph = () => {
   return (
     <div className="col-span-8 overflow-hidden rounded border border-stone-300">
       <div className="p-4">
@@ -107,3 +107,5 @@ export const ActivityGraph = () => {
     </div>
   );
 };
+
+export default ActivityGraph

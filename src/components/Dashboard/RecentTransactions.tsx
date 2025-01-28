@@ -1,7 +1,7 @@
 import React from "react";
 import { FiArrowUpRight, FiDollarSign, FiMoreHorizontal } from "react-icons/fi";
 
-export const RecentTransactions = () => {
+const RecentTransactions = () => {
   return (
     <div className="col-span-12 p-4 rounded border border-stone-300">
       <div className="mb-4 flex items-center justify-between">
@@ -77,6 +77,8 @@ const TableHead = () => {
     </thead>
   );
 };
+
+export default RecentTransactions;
 
 const TableRow = ({
   cusId,

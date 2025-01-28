@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { formatDate } from "@/lib/date/format";
 import { handleGetGreeting } from "@/lib/date/greeting";
 
-export const TopBar = () => {
+const TopBar = () => {
 
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   const [session, setSession] = useState<any>()
@@ -38,3 +38,5 @@ export const TopBar = () => {
     </div>
   );
 };
+
+export default TopBar

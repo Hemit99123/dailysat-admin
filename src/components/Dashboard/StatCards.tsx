@@ -1,7 +1,7 @@
 import React from "react";
 import { FiTrendingDown, FiTrendingUp } from "react-icons/fi";
 
-export const StatCards = () => {
+const StatCards = () => {
   return (
     <>
       <Card
@@ -65,3 +65,5 @@ const Card = ({
     </div>
   );
 };
+
+export default StatCards

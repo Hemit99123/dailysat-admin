@@ -46,7 +46,7 @@ const data = [
   },
 ];
 
-export const UsageRadar = () => {
+const UsageRadar = () => {
   return (
     <div className="col-span-4 overflow-hidden rounded border border-stone-300">
       <div className="p-4">
@@ -86,3 +86,5 @@ export const UsageRadar = () => {
     </div>
   );
 };
+
+export default UsageRadar
