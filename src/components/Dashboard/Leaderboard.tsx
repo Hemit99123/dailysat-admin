@@ -31,9 +31,6 @@ const Leaderboard = () => {
         <h3 className="flex items-center gap-1.5 font-medium">
           <FiDollarSign /> Leaderboard
         </h3>
-        <button className="text-sm text-violet-500 hover:underline">
-          See all
-        </button>
       </div>
       <table className="w-full table-auto">
         <TableHead />
@@ -98,7 +95,7 @@ const TableRow = ({
       <td className="p-1.5">
         <a
           href="#"
-          className="text-violet-600 underline flex items-center gap-1"
+          className="text-blue-600 underline flex items-center gap-1"
         >
           {cusId} <FiArrowUpRight />
         </a>
