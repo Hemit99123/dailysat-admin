@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../common/Header';
 import axios from 'axios'; // Import axios
+import { QuestionType } from '@/types/questions';
 
 const QuestionForm: React.FC = () => {
   // State to hold all form data
@@ -9,6 +10,7 @@ const QuestionForm: React.FC = () => {
   const [correctAnswer, setCorrectAnswer] = useState<number | null>(null);
   const [explanation, setExplanation] = useState<string>('');
   const [skill, setSkill] = useState<string>('');
+  const [type, setType] = useState<QuestionType>('math'); // State for question type
 
   // Handle changes for question text
   const handleQuestionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,10 +39,15 @@ const QuestionForm: React.FC = () => {
     setSkill(e.target.value);
   };
 
+  // Handle type selection
+  const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setType(e.target.value as QuestionType);
+  };
+
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Format the options to match MongoDB schema (optionA, optionB, ...)
     const questionData = {
       question,
       optionA: options[0],
@@ -50,6 +57,7 @@ const QuestionForm: React.FC = () => {
       correctAnswer,
       explanation,
       skill,
+      type, // Include the type in the data sent to the backend
     };
 
     try {
@@ -59,7 +67,7 @@ const QuestionForm: React.FC = () => {
       // Handle the response (for example, show a success message)
       alert('Question submitted successfully!');
     } catch (error) {
-      alert('Error' + error);
+      alert('Error: ' + error);
     }
   };
 
@@ -139,6 +147,20 @@ const QuestionForm: React.FC = () => {
           onChange={handleSkillChange}
           placeholder="Skill name..."
         />
+      </div>
+
+      {/* Type Selection Dropdown */}
+      <div className="mt-5">
+        <label htmlFor="type" className="block text-lg text-gray-700">Type</label>
+        <select
+          id="type"
+          className="w-full border-2 border-gray-300 rounded-lg p-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all mt-2"
+          value={type}
+          onChange={handleTypeChange}
+        >
+          <option value="math">Math</option>
+          <option value="reading">Reading</option>
+        </select>
       </div>
 
       {/* Submit Button */}

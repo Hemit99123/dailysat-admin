@@ -1,12 +1,11 @@
 import { client } from "@/lib/mongo";
 import { Db } from "mongodb";
-
 export const POST = async (req: Request) => {
   try {
     // Parse the incoming JSON data from the request body
     const requestBody = await req.json();
 
-    const { question, optionA, optionB, optionC, optionD, correctAnswer, explanation, skill } = requestBody;
+    const { type, question, optionA, optionB, optionC, optionD, correctAnswer, explanation, skill } = requestBody;
 
     // Ensure the necessary fields are provided
     if (!question || !optionA || !optionB || !optionC || !optionD || correctAnswer === undefined || !explanation || !skill) {
@@ -18,7 +17,7 @@ export const POST = async (req: Request) => {
     const db: Db = client.db("DailySAT");
 
     // Insert the data into the questions collection
-    const result = await db.collection("questions").insertOne({
+    const result = await db.collection(`${type == "math" ? "questions-math" : type == "reading" && "questions-reading"}`).insertOne({
       question,
       optionA,
       optionB,
