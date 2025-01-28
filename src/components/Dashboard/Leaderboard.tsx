@@ -45,7 +45,7 @@ const Leaderboard = () => {
             sortedUsers.map((user, index) => (
               <TableRow
                 key={user._id}
-                cusId={user._id || `#${index + 1}`}
+                id={user._id || `#${index + 1}`}
                 name={user.name || "Unknown"}
                 money={`$${user.currency}`}
                 order={index + 1}
@@ -68,7 +68,7 @@ const TableHead = () => {
   return (
     <thead>
       <tr className="text-sm font-normal text-stone-500">
-        <th className="text-start p-1.5">Customer ID</th>
+        <th className="text-start p-1.5">ID</th>
         <th className="text-start p-1.5">Name</th>
         <th className="text-start p-1.5">Money</th>
         <th className="w-8"></th>
@@ -80,12 +80,12 @@ const TableHead = () => {
 export default Leaderboard;
 
 const TableRow = ({
-  cusId,
+  id,
   name,
   money,
   order,
 }: {
-  cusId: string;
+  id: string;
   name: string;
   money: string;
   order: number;
@@ -97,7 +97,7 @@ const TableRow = ({
           href="#"
           className="text-blue-600 underline flex items-center gap-1"
         >
-          {cusId} <FiArrowUpRight />
+          {id} <FiArrowUpRight />
         </a>
       </td>
       <td className="p-1.5">{name}</td>
