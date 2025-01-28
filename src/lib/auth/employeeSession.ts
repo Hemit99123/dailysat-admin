@@ -1,3 +1,4 @@
+// all functions are server actions due to this declaration
 "use server";
 
 import { cookies } from 'next/headers';
