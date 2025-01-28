@@ -8,19 +8,19 @@ import {
   FiUsers,
 } from "react-icons/fi";
 
-const RouteSelect = () => {
+const PageSelect = () => {
   return (
     <div className="space-y-1">
-      <Route Icon={FiHome} selected={true} title="Dashboard" />
-      <Route Icon={FiUsers} selected={false} title="Team" />
-      <Route Icon={FiPaperclip} selected={false} title="Invoices" />
-      <Route Icon={FiLink} selected={false} title="Integrations" />
-      <Route Icon={FiDollarSign} selected={false} title="Finance" />
+      <Page Icon={FiHome} selected={true} title="Dashboard" />
+      <Page Icon={FiUsers} selected={false} title="Team" />
+      <Page Icon={FiPaperclip} selected={false} title="Invoices" />
+      <Page Icon={FiLink} selected={false} title="Integrations" />
+      <Page Icon={FiDollarSign} selected={false} title="Finance" />
     </div>
   );
 };
 
-const Route = ({
+const Page = ({
   selected,
   Icon,
   title,
@@ -43,4 +43,4 @@ const Route = ({
   );
 };
 
-export default RouteSelect
+export default PageSelect;

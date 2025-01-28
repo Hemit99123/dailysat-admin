@@ -1,5 +1,5 @@
 import React from "react";
-import RouteSelect from "./RouteSelect";
+import PageSelect from "./PageSelect";
 import ContactUs from "./ContactUs";
 import DailySATHeader from "./DailySATHeader";
 
@@ -8,7 +8,7 @@ const Sidebar = () => {
     <div>
       <div className="overflow-y-scroll sticky top-4 h-[calc(100vh-32px-48px)]">
         <DailySATHeader />
-        <RouteSelect />
+        <PageSelect />
       </div>
 
       <ContactUs />
