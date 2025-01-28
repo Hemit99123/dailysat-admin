@@ -1,6 +1,7 @@
 "use client"
 
 import { User } from "@/types/user";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FiArrowUpRight, FiDollarSign, FiMoreHorizontal } from "react-icons/fi";
 
@@ -11,8 +12,8 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await fetch("/api/leaderboard");
-        const data = await response.json();
+        const response = await axios.get("/api/leaderboard");
+        const data = response.data;
         setSortedUsers(data.sortedUsers); // Assuming the response contains a `sortedUsers` array
         setLoading(false);
       } catch (error) {
