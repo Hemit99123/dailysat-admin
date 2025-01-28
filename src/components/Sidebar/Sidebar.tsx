@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "./Search";
-import { RouteSelect } from "./RouteSelect";
+import RouteSelect from "./RouteSelect";
 import ContactUs from "./ContactUs";
 import DailySATHeader from "./DailySATHeader";
 

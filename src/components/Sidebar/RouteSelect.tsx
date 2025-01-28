@@ -8,7 +8,7 @@ import {
   FiUsers,
 } from "react-icons/fi";
 
-export const RouteSelect = () => {
+const RouteSelect = () => {
   return (
     <div className="space-y-1">
       <Route Icon={FiHome} selected={true} title="Dashboard" />
@@ -37,8 +37,10 @@ const Route = ({
           : "hover:bg-stone-200 bg-transparent text-stone-500 shadow-none"
       }`}
     >
-      <Icon className={selected ? "text-violet-500" : ""} />
+      <Icon className={selected ? "text-blue-500" : ""} />
       <span>{title}</span>
     </button>
   );
 };
+
+export default RouteSelect
