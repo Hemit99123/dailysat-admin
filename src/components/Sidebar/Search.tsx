@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FiCommand, FiSearch } from "react-icons/fi";
-import { CommandMenu } from "./CommandMenu";
+import CommandMenu from "./CommandMenu";
 
 const Search = () => {
   const [open, setOpen] = useState(false);
