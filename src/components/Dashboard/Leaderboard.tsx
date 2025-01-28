@@ -102,11 +102,6 @@ const TableRow = ({
       </td>
       <td className="p-1.5">{name}</td>
       <td className="p-1.5">{money}</td>
-      <td className="w-8">
-        <button className="hover:bg-stone-200 transition-colors grid place-content-center rounded text-sm size-8">
-          <FiMoreHorizontal />
-        </button>
-      </td>
     </tr>
   );
 };
