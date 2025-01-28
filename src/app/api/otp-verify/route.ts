@@ -25,7 +25,7 @@ export const GET = async (request: Request) => {
     const isValid = storedOtp === passwordAttempt;
 
     if (isValid) {
-      await redis.del(email); // Clear OTP after successful verification
+      await redis.del(`employee-${email}`); // Clear OTP after successful verification
     }
 
     return Response.json({
