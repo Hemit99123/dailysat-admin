@@ -3,7 +3,7 @@
 import { User } from "@/types/user";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { FiArrowUpRight, FiDollarSign, FiMoreHorizontal } from "react-icons/fi";
+import { FiArrowUpRight, FiDollarSign } from "react-icons/fi";
 
 const Leaderboard = () => {
   const [sortedUsers, setSortedUsers] = useState<User[]>([]);
