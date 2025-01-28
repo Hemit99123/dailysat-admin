@@ -13,5 +13,5 @@ export const middleware = async (request: NextRequest) => {
 };
 
 export const config = {
-  matcher: ['/'],
+  matcher: ['/', '/api/create-question', '/api/leaderboard', '/api/stats'],
 }
