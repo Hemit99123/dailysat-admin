@@ -40,6 +40,18 @@ export const getSession = async (): Promise<boolean> => {
     return session !== null; // Return true if session exists, false if it doesn't
 };
 
+export const getSessionInfo = async () => {
+    const sessionId = await getSessionIDCookie();
+
+    if (!sessionId) {
+        return false; // Return false if no sessionId
+    }
+
+    const session = await redis.get(`employee-session-${sessionId}`);
+
+    // returning the info instead of a boolean
+    return session
+}
 
 export const setSession = async (email: string): Promise<boolean> => {
     const sessionId = await createSessionIDCookie();
