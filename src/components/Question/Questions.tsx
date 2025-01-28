@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../common/Header';
+import axios from 'axios'; // Import axios
 
 const QuestionForm: React.FC = () => {
   // State to hold all form data
@@ -36,7 +37,7 @@ const QuestionForm: React.FC = () => {
     setSkill(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Format the options to match MongoDB schema (optionA, optionB, ...)
@@ -51,8 +52,18 @@ const QuestionForm: React.FC = () => {
       skill,
     };
 
-    // Handle the question data submission (e.g., send it to MongoDB)
-    console.log('Submitted question data:', questionData);
+    try {
+      // Send the question data to the API using axios
+      const response = await axios.post('/api/create-question', questionData);
+
+      // Handle the response (for example, show a success message)
+      console.log('Question submitted successfully:', response.data);
+      alert('Question submitted successfully!');
+    } catch (error) {
+      // Handle any errors that occur during the request
+      console.error('Error submitting question:', error);
+      alert('There was an error submitting the question. Please try again.');
+    }
   };
 
   return (
