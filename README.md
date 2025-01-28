@@ -21,5 +21,10 @@ The second layer is an OTP which is sent to your email. It is only active for 5 
 - Husky
 - ESLint
 
+## Features:
+
+### Create Questions:
+Through our platform you can create new questions for both reading/writing and math SAT platforms, all from one seamless form!
+
 ## Maintainers:
 - Hemit Patel (COO and Principal Maintainer of DailySAT)
