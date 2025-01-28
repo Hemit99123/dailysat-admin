@@ -57,11 +57,9 @@ const QuestionForm: React.FC = () => {
       const response = await axios.post('/api/create-question', questionData);
 
       // Handle the response (for example, show a success message)
-      console.log('Question submitted successfully:', response.data);
       alert('Question submitted successfully!');
     } catch (error) {
       // Handle any errors that occur during the request
-      console.error('Error submitting question:', error);
       alert('There was an error submitting the question. Please try again.');
     }
   };
