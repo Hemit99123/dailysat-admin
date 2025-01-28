@@ -1,21 +1,17 @@
 import React from "react";
 import { IconType } from "react-icons";
 import {
-  FiDollarSign,
   FiHome,
-  FiLink,
-  FiPaperclip,
-  FiUsers,
 } from "react-icons/fi";
+import { AiFillQuestionCircle } from "react-icons/ai";
+import { FaMoneyBill } from "react-icons/fa";
 
 const PageSelect = () => {
   return (
     <div className="space-y-1">
       <Page Icon={FiHome} selected={true} title="Dashboard" />
-      <Page Icon={FiUsers} selected={false} title="Team" />
-      <Page Icon={FiPaperclip} selected={false} title="Invoices" />
-      <Page Icon={FiLink} selected={false} title="Integrations" />
-      <Page Icon={FiDollarSign} selected={false} title="Finance" />
+      <Page Icon={AiFillQuestionCircle} selected={false} title="Create Question" />
+      <Page Icon={FaMoneyBill} selected={false} title="Create Item" />
     </div>
   );
 };
