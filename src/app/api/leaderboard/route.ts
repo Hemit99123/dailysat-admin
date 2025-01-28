@@ -11,7 +11,7 @@ export const GET = async () => {
       const usersCollection = db.collection("users");
   
       // Fetch and sort users by highest currency
-      const users = await usersCollection
+      const sortedUsers = await usersCollection
         .find({})
         .sort({ currency: -1 }) // Sort by currency in descending order
         .limit(15)
@@ -19,7 +19,7 @@ export const GET = async () => {
   
       // Return the sorted users as a JSON response
       return Response.json({
-        sortedUsers: users
+        sortedUsers
       })
     } catch (error) {
       return Response.json({
