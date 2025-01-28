@@ -2,7 +2,7 @@
 
 import { Dashboard } from "@/components/Dashboard/Dashboard";
 import Item from "@/components/Item/Item";
-import Questions from "@/components/Question/Questions";
+import Questions from "@/components/Question/Question";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import { usePageStore } from "@/store/pageStore";
 
