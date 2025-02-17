@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# Husky _ folder
+/.husky/_
+
 # debug
 npm-debug.log*
 yarn-debug.log*
@@ -31,7 +34,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
+.env
 
 # vercel
 .vercel

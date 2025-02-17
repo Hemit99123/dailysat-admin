@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DailySAT Admin Panel
 
-## Getting Started
+This is for employees within DailySAT to manage content within the DailySAT website. This content includes questions in our Math and Reading/Writing sections and items to be bought by members when they earn DailySAT coins.
 
-First, run the development server:
+## Our authentication system
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Authentication works through 2 layers. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Whitelist:
+The first layer is a whitelist on MongoDB. Our DB admin will add emails that are authorized employees onto this whitelist. Afterwards, in the admin login page you verify your email and once email is verified a OTP is sent.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### OTP:
+The second layer is an OTP which is sent to your email. It is only active for 5 minutes and is a one-time use code. You will enter that in the next section of the login and then enter your email once more. Afterwards, you will gain access for **7 days**. After the 7 days (1 week), you will need to do this process all-over again. 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Technologies Used:
+- NextJS
+- Upstash Redis (session management)
+- Nodemailer w/ Gmail STMP
+- TailwindCSS (for styling ofc)
+- MongoDB
+- Husky
+- ESLint
 
-## Learn More
+## Features:
 
-To learn more about Next.js, take a look at the following resources:
+### Create Questions:
+Through our platform you can create new questions for both reading/writing and math SAT platforms, all from one seamless form!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Maintainers:
+- Hemit Patel (COO and Principal Maintainer of DailySAT)
